@@ -8,13 +8,28 @@ Checks:
         * the price of item in the cart matches the price of chosen item.
 '''
 
+import pytest
+
 from pages.product_page import ProductPage
 
-URL = "http://selenium1py.pythonanywhere.com/catalogue/the-shellcoders-handbook_209/?promo=newYear"
+LINKS = [
+    "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer0",
+    "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1",
+    "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer2",
+    "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer3",
+    "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer4",
+    "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer5",
+    "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer6",
+    "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer7",
+    "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer8",
+    "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer9"]
+
+LINKS[7] = pytest.param(LINKS[7], marks=pytest.mark.xfail)
 
 
-def test_guest_can_add_product_to_basket(browser):
-    page = ProductPage(browser, URL)
+@pytest.mark.parametrize("link", LINKS)
+def test_guest_can_add_product_to_basket(browser, link):
+    page = ProductPage(browser, link)
     page.open()
     page.should_be_clickable_button_for_adding_to_cart()
     page.solve_quiz_and_get_code()
