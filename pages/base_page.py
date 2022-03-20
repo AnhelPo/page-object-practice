@@ -10,6 +10,8 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.common.exceptions import TimeoutException
 
+from pages.locators import BasePageLocators
+
 
 class BasePage():
 
@@ -44,12 +46,19 @@ class BasePage():
             return False
         return True
 
+    def should_be_login_link(self):
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), \
+                "Login link is missing"
+
+    def go_to_login_page(self):
+        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        login_link.click()
 
     # check for Stepik 4.3.2, alert proceeding
     def solve_quiz_and_get_code(self):
         alert = self.browser.switch_to.alert
-        x = alert.text.split(" ")[2]
-        answer = str(log(abs((12 * sin(float(x))))))
+        num = alert.text.split(" ")[2]
+        answer = str(log(abs((12 * sin(float(num))))))
         alert.send_keys(answer)
         alert.accept()
         try:
@@ -59,4 +68,3 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
-
