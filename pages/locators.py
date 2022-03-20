@@ -17,16 +17,15 @@ class LoginPageLocators:
     EMAIL_REGISTER = (By.ID, "id_registration-email")
     PASSWORD1_REGISTER = (By.ID, "id_registration-password1")
     PASSWORD2_REGISTER = (By.ID, "id_registration-password2")
-    REGISTRATION_BUTTON = (By.CSS_SELECTOR, "[name='registration_submit']")
+    REGISTRATION_BUTTON = (By.CSS_SELECTOR,
+                    "[name='registration_submit']")
 
 
 class ProductPageLocators:
     ITEM_NAME = (By.CSS_SELECTOR, ".product_main > h1")
     ITEM_PRICE = (By.CSS_SELECTOR, ".product_main > .price_color")
     ADD_TO_CART = (By.CLASS_NAME, "btn-add-to-basket")
-    ITEM_NAME_IN_CART = (By.CSS_SELECTOR, "#messages .alert:nth-of-type(1) .alertinner strong")
-    ITEM_PRICE_IN_CART = (By.CSS_SELECTOR, "#messages .alert:nth-of-type(3) .alertinner p strong")
-    VIEW_CART = (By.CSS_SELECTOR, ".basket-mini > .btn-group")
-
-class CartPageLocators:
-    IN_CART = (By.ID, "content_inner")
+    ITEM_NAME_IN_CART = (By.CSS_SELECTOR,
+                    "#messages .alert:nth-of-type(1) .alertinner strong")
+    ITEM_PRICE_IN_CART = (By.CSS_SELECTOR,
+                    "#messages .alert:nth-of-type(3) .alertinner p strong")
