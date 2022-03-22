@@ -8,6 +8,8 @@ from selenium.webdriver.common.by import By
 class BasePageLocators:
     LOGIN_LINK = (By.ID, "login_link")
     LOGIN_LINK_INVALID = (By.ID, "login_link_invalid")
+    VIEW_BASKET_LINK = (
+            By.CSS_SELECTOR, ".basket-mini .btn-group > a")
 
 
 class MainPageLocators:
@@ -34,3 +36,7 @@ class ProductPageLocators:
                     "#messages .alert:nth-of-type(1) .alertinner strong")
     ITEM_PRICE_IN_CART = (By.CSS_SELECTOR,
                     "#messages .alert:nth-of-type(3) .alertinner p strong")
+
+class BasketPageLocators:
+    IS_EMPTY_MESSAGE = (By.CSS_SELECTOR, "#content_inner > p:only-child")
+    BASKET_ITEMS = (By.CLASS_NAME, "basket-items")

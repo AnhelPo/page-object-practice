@@ -47,12 +47,24 @@ class BasePage():
         return True
 
     def should_be_login_link(self):
-        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), \
-                "Login link is missing"
+        assert self.is_element_present(
+                *BasePageLocators.LOGIN_LINK), \
+                "LOGIN link is MISSING!"
 
     def go_to_login_page(self):
-        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
+        login_link = self.browser.find_element(
+                *BasePageLocators.LOGIN_LINK)
         login_link.click()
+
+    def should_be_basket_link(self):
+        assert self.is_element_present(*
+                BasePageLocators.VIEW_BASKET_LINK), \
+                "BASKET link is MISSING!"
+
+    def go_to_basket_page(self):
+        basket_link = self.browser.find_element(
+                *BasePageLocators.VIEW_BASKET_LINK)
+        basket_link.click()
 
     # check for Stepik 4.3.2, alert proceeding
     def solve_quiz_and_get_code(self):
