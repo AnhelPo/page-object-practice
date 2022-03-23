@@ -33,7 +33,7 @@ class BasePage():
     def is_not_element_present(self, how, what, timeout=4):
         try:
             WebDriverWait(self.browser, timeout).\
-                    until(EC.presence_of_element_located((how, what)))
+                until(EC.presence_of_element_located((how, what)))
         except TimeoutException:
             return True
         return False
@@ -41,30 +41,35 @@ class BasePage():
     def is_disappeared(self, how, what, timeout=4):
         try:
             WebDriverWait(self.browser, timeout, 1, TimeoutException).\
-                    until_not(EC.presence_of_element_located((how, what)))
+                until_not(EC.presence_of_element_located((how, what)))
         except TimeoutException:
             return False
         return True
 
     def should_be_login_link(self):
         assert self.is_element_present(
-                *BasePageLocators.LOGIN_LINK), \
-                "LOGIN link is MISSING!"
+            *BasePageLocators.LOGIN_LINK), \
+            "LOGIN link is MISSING!"
 
     def go_to_login_page(self):
         login_link = self.browser.find_element(
-                *BasePageLocators.LOGIN_LINK)
+            *BasePageLocators.LOGIN_LINK)
         login_link.click()
 
     def should_be_basket_link(self):
-        assert self.is_element_present(*
-                BasePageLocators.VIEW_BASKET_LINK), \
-                "BASKET link is MISSING!"
+        assert self.is_element_present(
+            *BasePageLocators.VIEW_BASKET_LINK), \
+            "BASKET link is MISSING!"
 
     def go_to_basket_page(self):
         basket_link = self.browser.find_element(
-                *BasePageLocators.VIEW_BASKET_LINK)
+            *BasePageLocators.VIEW_BASKET_LINK)
         basket_link.click()
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(
+            *BasePageLocators.USER_ICON), \
+            "User icon is not presented, probably unauthorized user"
 
     # check for Stepik 4.3.2, alert proceeding
     def solve_quiz_and_get_code(self):
