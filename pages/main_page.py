@@ -1,6 +1,6 @@
-'''
+"""
 Class for the main page.
-'''
+"""
 
 from pages.base_page import BasePage
 
