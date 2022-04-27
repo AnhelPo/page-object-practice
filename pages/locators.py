@@ -1,7 +1,5 @@
 """
 Selectors for all elements in project.
-
-!! Class MainPageLocators was removed as empty.
 """
 
 from selenium.webdriver.common.by import By
