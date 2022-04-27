@@ -64,9 +64,6 @@ class TestGuestGoToLoginFromProductPage:
         Check if guest can:
          - see login link on the product page,
          - go to the login page from the product page.
-         !! 2 tests are in one for code consistency:
-         * test_guest_should_see_login_link and
-         * test_guest_can_go_to_login_page.
         """
         # see above here the helper function
         product_page = get_class_instance_and_open_page(browser)
