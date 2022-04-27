@@ -9,5 +9,3 @@ Environment:
 - Pytest 7.0.1,
 - Google Chrome 99.0.4844.82,
 - ChromeDriver 98.0.4758.102.  
-
-!!  Import via "pages" (not ".pages") works on my system.
