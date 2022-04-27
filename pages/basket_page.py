@@ -1,7 +1,5 @@
 """
 Class for basket page.
-
-!! Methods are intentionally grouped by theme, not in alphabetical order.
 """
 
 from pages.base_page import BasePage
