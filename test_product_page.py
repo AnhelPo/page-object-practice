@@ -19,8 +19,6 @@ Checks:
  - registered user can go to the basket page from the product page,
  - if no item was added to basket by registered user, the basket is empty
    and a message about empty basket is shown.
-
-!! Tests are intentionally grouped by theme, not in alphabetical order.
 """
 
 import time
