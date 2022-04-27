@@ -1,8 +1,5 @@
 """
 Base class for all pages in project.
-
-!! Method for stepik quiz was removed as redundant.
-!! Methods are intentionally grouped by theme, not in alphabetical order.
 """
 
 
