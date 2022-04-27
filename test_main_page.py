@@ -10,8 +10,6 @@ Checks:
  - guest user can go to the basket page from the main page,
  - if no item was added to basket by guest user, the basket is empty
    and a message about empty basket is shown.
-
-!! Tests are intentionally grouped by theme, not in alphabetical order.
 """
 
 import pytest
